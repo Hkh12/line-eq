@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="#bbcfd6">
+        <title>Line Equation</title>
+        <meta name="description" content="A tiny Web-App that demonstrates how line equations works.">
+        <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="./style/main.scss">
+    </head>
+
+    <body>
+        <div class="top">
+            <h1>Line Equation</h1>
+            <form>
+                <input type="text" placeholder="y = ..." name="equation" required autocomplete="off" spellcheck="false">
+                <button>Draw</button>
+            </form>
+        </div>
+        <div class="page">
+            <svg width="300" height="300">
+                <path d="M 150 0 l 0 300"></path>
+                <path d="M 0 150 l 300 0"></path>
+                <rect x="0" y="0" width="300" height="300" stroke-width='2'></rect>
+                <path class="line" stroke="#2b3f46" stroke-width="3" d="M1000 1000 l 1 1"></path>
+            </svg>
+            <div id="error"></div>
+        </div>
+    </body>
+    <script src="./js/index.js"></script>
+
+</html>
