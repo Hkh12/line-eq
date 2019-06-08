@@ -81,7 +81,8 @@ input {
         stroke: lighten($text, 40%)
     }
     path.line {
-        stroke: $accent
+        stroke: $accent;
+        stroke-width: 3
     }
     .error {
         position: absolute;

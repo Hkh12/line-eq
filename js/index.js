@@ -1,6 +1,8 @@
 import { Spreax } from "spreax/dist/spreax.esm";
 import parse from "./parser";
 
+document.querySelector("svg").insertAdjacentHTML("beforeend", "<path class='line' @if='isOk' @attr:d='result'></path>");
+
 const app = new Spreax({
     el: document.querySelector("#app"),
     state: {
