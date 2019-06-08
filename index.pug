@@ -1,24 +1,25 @@
-DOCTYPE
+doctype
 html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible" content="ie=edge")
-        meta(name="theme-color" content="#bbcfd6")
+        meta(name="theme-color" content="#d6ccbb")
         title Line Equation
         meta(name="description" content="A tiny Web-App that demonstrates how line equations works.")
         link(href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet")
         link(rel="stylesheet" href="./style/main.scss")
-    body: #app
-        .left
-            h1 Line Equation
-            input(type="text" placeholder="y = ..." spellcheck="false" @bind="eq")
-        .right
-            .page
-                .error(@if="error")
-                svg(width="300" height="300")
-                    path(d="M 150 0 l 0 300")/
-                    path(d="M 0 150 l 300 0")/
-                    rect(x="0" y="0" width="300" height="300" stroke-width="2")/
-                    path.line(@if="!error" @attr:d="d" stroke-width="3")/
+    body
+        #app
+            .left
+                h1 Line Equation
+                input(type="text" placeholder="y = ..." spellcheck="false" autofocus @bind="eq")
+            .right
+                .page
+                    .error(@if="showError")
+                    svg(width="300" height="300")
+                        path(d="M 150 0 l 0 300")/
+                        path(d="M 0 150 l 300 0")/
+                        rect(x="0" y="0" width="300" height="300" stroke-width="2")/
+                        path.line(@if="isOk" @attr:d="result" stroke-width="3")/
     script(src="./js/index.js")

@@ -2,9 +2,13 @@
  * Parses a line equation.
  * @param {string} eq 
  */
-export default function(eq) {
+export default function parse(eq) {
     eq = eq.replace(/\s/g, "").toLowerCase();
-    const [left, right] = eq.split("=");
+
+    const sides = eq.split("=");
+    if (sides.length > 2) throw new Error("invalid expression");
+    
+    const [left, right] = sides;
     if (!left || !right) throw new Error("got an empty expression");
     
     const standard = right.match(/^([-+]?\d*)x([+-]\d+)?$/);
