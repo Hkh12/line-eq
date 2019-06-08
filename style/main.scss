@@ -1,6 +1,5 @@
 $fill: #bbcfd6;
 $text: #2b3f46;
-// $accent: #ffda20;
 
 * {
     box-sizing: border-box;
@@ -16,10 +15,13 @@ body {
     background: $fill;
     color: $text;
     font-family: 'Space Mono', monospace;
-    text-align: center;
     margin: 0;
-    padding: 2.5rem 0;
+}
+
+#app {
+    text-align: center;
     min-height: 100vh;
+    padding: 2.5rem 0;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -27,16 +29,20 @@ body {
         flex-direction: column;
         justify-content: center;
     }
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 80%;
+    }
 }
 
 h1 {
     margin-top: 0;
     margin-bottom: 2.5rem;
     position: relative;
-    // padding: 0 16px;
     &::after, &::before {
         display: inline-block;
-        // position: absolute;
         content: '•';
         opacity: .5;
         margin: 0 8px;
@@ -47,16 +53,10 @@ h1 {
     color: rgba($text, .6)
 }
 
-form {
-    width: 300px;
-    display: flex;
-    margin: 0 auto;
-}
-
 input {
     background: 0;
-    width: 100%;
-    margin-right: .75rem;
+    width: 300px;
+    margin: 0 .75rem;
     border: 1px solid #0002;
     font-family: inherit;
     padding: 6px 10px;
@@ -68,27 +68,13 @@ input {
     }
 }
 
-button {
-    border: none;
-    font-family: inherit;
-    font-weight: bold;
-    display: inline-block;
-    padding: 6.5px 10px;
-    background: $text;
-    color: $fill;
-    cursor: pointer;
-    font-size: inherit;
-    &:hover, &:focus, &:active {
-        background: darken($text, 10%)
-    }
-}
-
 .page {
     position: relative;
     width: 300px;
     height: 300px;
     $line-color: lighten($text, 42%);
-    $line-width: 10px;    @include mobile {
+    $line-width: 10px;
+    @include mobile {
         margin: 3rem auto 0
     }
     path, rect {
@@ -98,7 +84,7 @@ button {
     path.line {
         stroke: $text
     }
-    #error {
+    .error {
         position: absolute;
         left: 0;
         right: 0;
@@ -107,11 +93,7 @@ button {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #db9191e3;
-        color: #641e1e;
-        font-weight: bold;
-        &:empty {
-            display: none;
-        }
+        pointer-events: none;
+        box-shadow: inset 0 0 0 1px #ce2b2b
     }
 }

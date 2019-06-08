@@ -4,11 +4,15 @@
         "eslint": "^5.15.1",
         "eslint-config-problems": "^2.0.0",
         "parcel-bundler": "^1.12.2",
+        "pug": "^2.0.3",
         "sass": "^1.17.2"
     },
     "scripts": {
-        "build": "parcel build index.html --no-source-maps",
-        "start": "parcel index.html",
-        "deploy": "surge dist https://line-eq.surge.sh"
+        "build": "parcel build index.pug --no-source-maps",
+        "start": "parcel index.pug --no-cache",
+        "deploy": "npm run build surge dist https://line-eq.surge.sh"
+    },
+    "dependencies": {
+        "spreax": "^1.0.0-beta.4"
     }
 }
